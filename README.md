@@ -33,7 +33,7 @@ the player will grow making harder to dodge enemies, and this will need a bigger
 - Main scene Tree
   <img width="265" alt="Screenshot 2023-12-10 at 12 29 03 PM" src="https://github.com/had2020/Z-G-Salvage-game/assets/59424667/d1c5dd7b-ee32-499c-84de-bdff9e2d7d3f">
 
--Player / Rigidbody Node
+- Player / Rigidbody Node
 It defines a class that inherits from RigidBody2D, a node that represents a 2D physics object that can collide and move according to forces.
 The class has four @export variables: thrust, max_speed, damping, and input_up, input_down, input_left, and input_right. They store the force applied to the body when accelerating, the maximum speed of the body, the damping factor that reduces the body’s velocity over time, and the input actions for controlling the body, respectively. They can be modified in the editor.
 The class has one function: _physics_process. This is a built-in function that is called every physics frame. It takes a parameter named delta that represents the elapsed time since the previous frame.
@@ -49,7 +49,7 @@ It applies a torque to the body to make it rotate using the apply_torque method.
 It limits the body’s speed to the maximum value using the linear_velocity property and the length and normalized methods. The speed is a scalar value that represents the magnitude of the linear velocity vector.
 It applies a damping factor to the body’s velocity using the linear_velocity property and the *= operator. The damping factor is a value between 0 and 1 that reduces the velocity over time.
 
--Enemy
+- Enemy
 It defines a class that inherits from RigidBody2D, a node that represents a 2D physics object that can collide and move according to forces.
 The class has four constants: MAX_SPEED, MAX_FORCE, timer, and raycast. They store the maximum speed and force of the RigidBody2D, and the references to the timer and raycast nodes that are children of the RigidBody2D.
 The class has a variable named enemy that preloads a scene resource that contains an enemy node.
@@ -69,7 +69,7 @@ It limits the speed of the RigidBody2D by clamping its linear velocity vector to
 The _on_area_2d_area_entered function is a signal that is emitted when another Area2D node enters the area of the RigidBody2D. It takes a parameter named area that represents the other node. It does the following:
 It checks if the area node is in a group named “Boom”. If so, it calls the respawn function. This means that the RigidBody2D is killed when it is inside the mouse boom of doom.
 
--Enemies
+- Enemies
 It defines a class that inherits from Node2D, a node that represents a 2D object in a scene.
 The class has an @onready variable named scene_res that preloads a scene resource from the given path. The scene resource is a file that contains a node hierarchy and other data for a scene.
 The class has three variables: count, radius, and center. They store the number of enemies to spawn, the radius of the circular area where the enemies are spawned, and the center of the circular area, respectively. They are initialized to 10, (1000, 0), and (0, 0). The class has another variable named step that calculates the angle between each enemy on the circle. It is equal to 2 * PI / count, where PI is a constant that represents the ratio of a circle’s circumference to its diameter. The class has two functions: _ready and spawn_nodes. These are user-defined functions that perform specific tasks.
@@ -82,7 +82,7 @@ It sets the node’s position to the spawn position.
 It adds the node as a child of the current node.
 It prints the message “spawn func ran” to the console for debugging purposes. This line is commented out and will not execute.
 
--Mouse Boom / Area 2D
+- Mouse Boom / Area 2D
 It defines a class that inherits from Node2D, a node that represents a 2D object in a scene.
 The class has two variables: input_up and input_down, which store the names of the input actions that control the node’s growth. It also has an @export variable named change_rate of type float that can be modified in the editor. It determines how fast the node’s growth changes over time.The class has another variable named stored_change of type float that stores the current growth factor of the node. It is initialized to 1.
 The class has one function: _process. This is a built-in function that is called every frame. It takes a parameter named delta that represents the elapsed time since the previous frame.
@@ -96,16 +96,16 @@ It sets the node’s scale to the new myscale vector. This updates the node’s 
 It increases the stored_change by the change_rate. This makes the node’s growth change faster over time.
 It checks if the stored_change is equal to 10000. If so, it resets it to 1. This prevents the node’s growth from becoming too large or too small.
 
--Health 
+- Health 
 defines a class that inherits from Area2D, a node that represents a 2D area that can detect collisions with other nodes.
 The class has a variable named health of type float that stores the current health of the node. It is initialized to 100.
 The class has two functions: _on_body_entered and _on_timer_timeout. These are signals that are emitted when certain events occur.
 The _on_body_entered function is called when another body (such as a KinematicBody2D or a RigidBody2D) enters the area of the node. It prints the message “player hit” to the console, and reduces the health by a random value between 5 and 25. It also updates the global variable Globals.health with the new value of health. If the health becomes less than or equal to 0, it sets the global variable Globals.score to 1, and reloads the current scene using the get_tree function. The _on_timer_timeout function is called when a Timer node that is a child of the node reaches its timeout. It increases the health by a random value between 1 and 20.
 
--Laser
+- Laser
 Not used in game, and empty 
 
--Camera / Camera Node with some extra code
+- Camera / Camera Node with some extra code
 It defines a class that inherits from Camera2D, a node that represents a 2D camera that displays a portion of the scene.
 The class has six variables: zoomspeed, zoommargin, zoomMin, zoomMax, zoompos, and zoomfactor. They store the effects of zoom speed and smoothness, the zoom limits, the current mouse position, and the current zoom factor, respectively. They are initialized to 100, 0.5, 0.3, 6, (0, 0), and 1.0.
 The class has two functions: _process and _input. These are built-in functions that are called every frame and every input event, respectively. They take a parameter named delta and event that represent the elapsed time and the input event, respectively.
