@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dluavyi2botee"]
+
+[ext_resource type="Script" path="res://Scenes/ui.gd" id="1_c2oxe"]
+
+[node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_c2oxe")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(1.94553, 1.94553)
+text = "Health:
+Score:"
+
+[node name="healthui" type="Label" parent="."]
+offset_left = 118.0
+offset_top = -1.0
+offset_right = 174.0
+offset_bottom = 51.0
+scale = Vector2(2.34554, 2.36461)
+text = "000"
+
+[node name="scoreui" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 54.0
+offset_right = 165.0
+offset_bottom = 106.0
+scale = Vector2(2.10554, 2.10554)
+text = "000"

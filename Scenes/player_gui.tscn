@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://lny1hb71ygsh"]
+
+[node name="Player_GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.44, 4.44)
+
+[node name="Healthcount" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 59.0
+offset_right = 115.0
+offset_bottom = 26.0
+text = "000"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 2
+offset_right = 56.0
+offset_bottom = 26.0
+text = "Health:"

@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://11s3sm5lqtj4"]
+
+[ext_resource type="PackedScene" uid="uid://d01hyt48me1gb" path="res://Scenes/player.tscn" id="1_1rj6p"]
+[ext_resource type="PackedScene" uid="uid://chb3ob5afb53y" path="res://Scenes/background.tscn" id="2_3qyrd"]
+[ext_resource type="PackedScene" uid="uid://8ul2bnor3abr" path="res://Scenes/enemys.tscn" id="3_htafj"]
+[ext_resource type="PackedScene" uid="uid://ra28o3tpsjnn" path="res://Scenes/title.tscn" id="4_wy6wa"]
+[ext_resource type="PackedScene" uid="uid://c8m3cagx4tcgn" path="res://Scenes/mouse_booms.tscn" id="5_eqi2r"]
+[ext_resource type="PackedScene" uid="uid://dluavyi2botee" path="res://Scenes/ui.tscn" id="6_c7pr1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kaa7j"]
+bounce = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_426x0"]
+size = Vector2(2438, 29)
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("2_3qyrd")]
+z_index = -1
+offset_left = -1178.0
+offset_top = -1196.0
+offset_right = 1262.0
+offset_bottom = 1244.0
+scale = Vector2(0.998754, 0.998769)
+
+[node name="Player" parent="." instance=ExtResource("1_1rj6p")]
+z_index = 5
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+physics_material_override = SubResource("PhysicsMaterial_kaa7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(40, 1256)
+shape = SubResource("RectangleShape2D_426x0")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+position = Vector2(67, -22)
+rotation = 1.57105
+physics_material_override = SubResource("PhysicsMaterial_kaa7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2(40, 1256)
+shape = SubResource("RectangleShape2D_426x0")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+position = Vector2(90, 36)
+rotation = 3.13701
+physics_material_override = SubResource("PhysicsMaterial_kaa7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(40, 1256)
+shape = SubResource("RectangleShape2D_426x0")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+position = Vector2(14, 62)
+rotation = -1.57512
+physics_material_override = SubResource("PhysicsMaterial_kaa7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
+position = Vector2(40, 1256)
+shape = SubResource("RectangleShape2D_426x0")
+
+[node name="Enemys" parent="." instance=ExtResource("3_htafj")]
+
+[node name="Title" parent="." instance=ExtResource("4_wy6wa")]
+position = Vector2(-4, -3)
+
+[node name="Mouse_booms" parent="." instance=ExtResource("5_eqi2r")]
+
+[node name="Ui" parent="." instance=ExtResource("6_c7pr1")]
