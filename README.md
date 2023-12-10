@@ -4,7 +4,7 @@ A Godot 4 Game, Zero Gravity, Io like game
 --------------------------------------------
 By: Hadrian Lazic Date: 12/10/23
 --------------------------------------------
-Video Presentation, and heavy code analysis available
+Video Presentation at the end of page, and heavy code analysis available
 --------------------------------------------
 Itch.io page 
 [
@@ -30,9 +30,7 @@ the player will grow making harder to dodge enemies, and this will need a bigger
 
 # Code analysis
 
-- 10 Custom Nodes 
-
-- Main scene
+- Main scene Tree
   <img width="265" alt="Screenshot 2023-12-10 at 12 29 03 PM" src="https://github.com/had2020/Z-G-Salvage-game/assets/59424667/d1c5dd7b-ee32-499c-84de-bdff9e2d7d3f">
 
 -Player / Rigidbody Node
@@ -98,7 +96,7 @@ It sets the node’s scale to the new myscale vector. This updates the node’s 
 It increases the stored_change by the change_rate. This makes the node’s growth change faster over time.
 It checks if the stored_change is equal to 10000. If so, it resets it to 1. This prevents the node’s growth from becoming too large or too small.
 
--Health
+-Health 
 defines a class that inherits from Area2D, a node that represents a 2D area that can detect collisions with other nodes.
 The class has a variable named health of type float that stores the current health of the node. It is initialized to 100.
 The class has two functions: _on_body_entered and _on_timer_timeout. These are signals that are emitted when certain events occur.
@@ -107,7 +105,7 @@ The _on_body_entered function is called when another body (such as a KinematicBo
 -Laser
 Not used in game, and empty 
 
-- Camera
+-Camera / Camera Node with some extra code
 It defines a class that inherits from Camera2D, a node that represents a 2D camera that displays a portion of the scene.
 The class has six variables: zoomspeed, zoommargin, zoomMin, zoomMax, zoompos, and zoomfactor. They store the effects of zoom speed and smoothness, the zoom limits, the current mouse position, and the current zoom factor, respectively. They are initialized to 100, 0.5, 0.3, 6, (0, 0), and 1.0.
 The class has two functions: _process and _input. These are built-in functions that are called every frame and every input event, respectively. They take a parameter named delta and event that represent the elapsed time and the input event, respectively.
